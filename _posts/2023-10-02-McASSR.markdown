@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Rethinking Multi-Contrast MRI Super-Resolution: Rectangle-Window Cross-Attention Transformer and Arbitrary-Scale Upsampling"
+image: /images/joc.png
+categories: pub
+author: "Guangyuan Li"
+authors: "Guangyuan Li, Lei Zhao*, <strong>Jiakai Sun</strong>, Zehua Lan, Zhanjie Zhang, Jiafu Chen, Zhijie Lin, Huaizhong Lin, Wei Xing*"
+venue: "ICCV"
+paper: https://openaccess.thecvf.com/content/ICCV2023/papers/Li_Rethinking_Multi-Contrast_MRI_Super-Resolution_Rectangle-Window_Cross-Attention_Transformer_and_Arbitrary-Scale_Upsampling_ICCV_2023_paper.pdf
+code: https://github.com/GuangYuanKK/McASSR
+---

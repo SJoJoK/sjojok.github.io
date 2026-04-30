@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "3DGStream: On-the-Fly Training of 3D Gaussians for Efficient Streaming of Photo-Realistic Free-Viewpoint Videos"
+image: /images/3dgstream.png
+categories: sl_pub
+author: "Jiakai Sun"
+authors: "<strong>Jiakai Sun</strong>, Han Jiao, Guangyuan Li, Zhanjie Zhang, Lei Zhao, Wei Xing"
+venue: "CVPR"
+project: https://sjojok.github.io/3dgstream
+paper: https://openaccess.thecvf.com/content/CVPR2024/papers/Sun_3DGStream_On-the-Fly_Training_of_3D_Gaussians_for_Efficient_Streaming_of_CVPR_2024_paper.pdf
+code: https://github.com/SJoJoK/3DGStream
+special: Highlight
+---
+We introduce a system designed for efficient Free-Viewpoint Videos streaming of real-world dynamic scenes, achieving fast on-the-fly per-frame reconstruction within 12 seconds and real-time rendering at 200 FPS.

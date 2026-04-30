@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "VGOS: Voxel Grid Optimization for View Synthesis from Sparse Inputs"
+image: /images/vgos.png
+categories: sl_pub
+author: "Jiakai Sun"
+authors: "<strong>Jiakai Sun</strong>, Zhanjie Zhang, Jiafu Chen, Guangyuan Li, Boyan Ji, Lei Zhao, Wei Xing"
+venue: "IJCAI"
+project: https://sjojok.github.io/vgos
+paper: https://www.ijcai.org/proceedings/2023/157
+code: https://github.com/SJoJoK/VGOS
+---
+
+We present a novel approach that rapidly reconstructs high-quality radiance fields from as few as 3-10 views in just 3-5 minutes, overcoming the limitations of voxel grid overfitting and artifacts in sparse input scenarios through an incremental training strategy and regularization techniques.

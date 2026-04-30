@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="3DGStream: On-the-Fly Training of 3D Gaussians for Efficient Streaming of Photo-Realistic Free-Viewpoint Videos.">
+  <meta name="keywords" content="3D Gaussian Splatting, Free-Viewpoint Videos">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3DGStream</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://sjojok.github.io">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://sjojok.github.io/3dgstream">
+              3DGStream
+            </a>
+            <a class="navbar-item" href="https://sjojok.github.io/vgos">
+              VGOS
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+</nav>  
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">3DGStream: On-the-Fly Training of 3D Gaussians for Efficient Streaming of Photo-Realistic Free-Viewpoint Videos</h1>
+          <h1 style="font-size:1.5rem">CVPR 2024 <strong>(Highlight)</strong></h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://sjojok.github.io">Jiakai Sun</a>,
+            </span>
+            <span class="author-block">
+              Han Jiao,
+            </span>
+            <span class="author-block">
+              <a href="https://guangyuankk.github.io/">Guangyuan Li</a>,
+            </span>
+            <span class="author-block">
+              Zhanjie Zhang,
+            </span>
+            <span class="author-block">
+              Lei Zhao,
+            </span>
+            <span class="author-block">
+              Wei Xing
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Zhejiang University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Sun_3DGStream_On-the-Fly_Training_of_3D_Gaussians_for_Efficient_Streaming_of_CVPR_2024_paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://openaccess.thecvf.com/content/CVPR2024/supplemental/Sun_3DGStream_On-the-Fly_Training_CVPR_2024_supplemental.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-paperclip"></i>
+                  </span>
+                  <span>Suppl.</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/SJoJoK/3DGStream"
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Repo<sup>&dagger;</sup></span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:left;">
+        <sup>&dagger;</sup> Code Released!🎉
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">3DGStream</span> is designed for efficient Free-Viewpoint Videos streaming of real-world dynamic scenes, achieving fast on-the-fly per-frame reconstruction within 12 seconds and real-time rendering at 200 FPS.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item item-steak">
+          <video poster="" id="steak" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/flame_steak_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-sear">
+          <video poster="" id="sear" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sear_steak_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee_martini_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-salmon">
+          <video poster="" id="salmon" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/flame_salmon_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-spinach">
+          <video poster="" id="spinach" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/cook_spinach_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-beef">
+          <video poster="" id="beef" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/cut_roasted_beef_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Constructing photo-realistic Free-Viewpoint Videos (FVVs) of dynamic scenes from multi-view videos remains a challenging endeavor. 
+            Despite the remarkable advancements achieved by current neural rendering techniques, these methods generally require complete video sequences for offline training and are not capable of real-time rendering.
+          </p>
+          <p>
+            To address these constraints, we introduce 3DGStream, a method designed for efficient FVV streaming of real-world dynamic scenes. 
+            Our method achieves fast on-the-fly per-frame reconstruction within 12 seconds and real-time rendering at 200 FPS. 
+            Specifically, we utilize 3D Gaussians (3DGs) to represent the scene. 
+            Instead of the naïve approach of directly optimizing 3DGs per-frame, we employ a compact Neural Transformation Cache (NTC) to model the translations and rotations of 3DGs, markedly reducing the training time and storage required for each FVV frame. 
+            Furthermore, we propose an adaptive 3DG addition strategy to handle emerging objects in dynamic scenes. 
+          </p>
+          <p>
+            Experiments demonstrate that 3DGStream achieves competitive performance in terms of rendering speed, image quality, training time, and model storage when compared with state-of-the-art methods.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+      <!-- Method. -->
+      <div class="columns is-centered">
+          <div class="column is-full-width">
+              <h2 class="title is-3">Method</h2>
+
+              <!-- Overview. -->
+              <div class="content has-text-justified">
+                  <div class="container is-max-desktop has-text-centered">
+                      <img src="./static/images/overview.svg" width="100%">
+                  </div>
+                  <br>
+                  <p>
+                    Given a set of multi-view video streams, 3DGStream aims to construct high-quality FVV stream of the captured dynamic scene on-the-fly. Initially, we optimize a set of 3DGs to represent the scene at timestep 0. For each subsequent timestep i, we use the 3DGs from timestep i-1 as an initialization and then engage in a two-stage training process:
+                    <p>
+                      <b>Stage 1</b>: We train the Neural Transformation Cache (NTC) to model the translations and rotations of 3DGs. After training, the NTC transforms the 3DGs, preparing them for the next timestep and the next stage in the current timestep.
+                      <br>
+                      <b>Stage 2</b>: We spawn frame-specific additional 3DGs at potential locations and optimize them along with periodic splitting and pruning.
+                    </p>
+                    <p>
+                      After the two-stage process concludes, both transformed and additional 3DGs are used to render at the current timestep i, with only the transformed ones carried into the next timestep.
+                    </p>
+                  </p>
+              </div>
+              <!--/ Overview. -->
+
+              <h2 class="title is-3">Evaluations</h2>
+
+              <h3 class="title is-4">Comprehensive Comparison with Previous Methods</h3>
+              <div class="container is-max-desktop has-text-centered">
+                  <img src="static/images/cpr_1.png" width="100%">
+              </div>
+              <p>
+                Comparison on the <i>flame steak</i> scene of the N3DV dataset.
+                The training time, requisite storage, and PSNR are computed as averages over the whole video.
+                Our method stands out by the ability of fast online training and real-time rendering, standing competitive in both model storage and image quality.
+              </p>
+              <br>
+
+              <h3 class="title is-4">Fast Training & Real-time Rendering</h3>
+              <div class="container is-max-desktop hasxt-centered">
+                  <img src="static/images/cpr_2.png" width="100%">
+              </div>
+              <p>
+                Comparison of our method with other methods on the N3DV dataset.
+                ◼ denotes training from scratch per frame, ▲ represents offline training on complete video sequences, and ● signifies online training on video streams.
+                While achieving online training , our method reaches state-of-the-art performance in both rendering speed and overall training time.
+              </p>
+              <br>
+
+              <h3 class="title is-4">Photo-Realistic Visual Quality</h3>
+              <div class="container is-max-desktop hasxt-centered">
+                  <img src="static/images/cpr_3.png" width="100%">
+              </div>
+              <p>
+                Visual comparisons on the <i>discussion</i> scene of the Meet Room dataset and the <i>sear steak</i> scene of the N3DV dataset.
+                While our approach primarily aims to enhance the efficiency of online FVV construction, it still achieves competitive visual quality.
+              </p>
+              <br>
+
+              <h3 class="title is-4">Modeling Emerging Objects</h3>
+              <div class="container is-max-desktop hasxt-centered">
+                  <img src="static/images/abl.png" width="100%">
+              </div>
+              <p>
+                Ablation study on our proposed Adaptive 3DG Adition strategy, highlighting its ability to reconstruct the objects not present in the initial frame, such as coffee in a pot, a dog's tongue, and flames. 
+              </p>
+              <br>
+
+              <br>
+          </div>
+      </div>
+
+
+      <!-- Concurrent Work. -->
+      <!-- <div class="columns is-centered">
+          <div class="column is-full-width">
+              <h2 class="title is-3">Related Links</h2>
+
+              <div class="content has-text-justified">
+
+                  <p>
+                  </p>
+              </div>
+          </div>
+      </div> -->
+      <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@InProceedings{sun20243dgstream,
+      author    = {Sun, Jiakai and Jiao, Han and Li, Guangyuan and Zhang, Zhanjie and Zhao, Lei and Xing, Wei},
+      title     = {3DGStream: On-the-Fly Training of 3D Gaussians for Efficient Streaming of Photo-Realistic Free-Viewpoint Videos},
+      booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+      month     = {June},
+      year      = {2024},
+      pages     = {20675-20685}
+  }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+      <div class="columns is-centered">
+          <div class="column is-8">
+              <div class="content">
+                  <p>
+                      This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                      Commons Attribution-ShareAlike 4.0 International License</a>.
+                  </p>
+                  <p>
+                      Website template credit to <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>

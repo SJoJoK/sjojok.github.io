@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VGOS: Voxel Grid Optimization for View Synthesis from Sparse Inputs.">
+  <meta name="keywords" content="3D Gaussian Splatting, Free-Viewpoint Videos">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VGOS</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://sjojok.github.io">
+        <span class="icon">
+            <i class="fas fa-home"></i>
+        </span>
+        </a>
+  
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://sjojok.github.io/3dgstream">
+              3DGStream
+            </a>
+            <a class="navbar-item" href="https://sjojok.github.io/vgos">
+              VGOS
+            </a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+</nav>  
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VGOS: Voxel Grid Optimization for View Synthesis from Sparse Inputs</h1>
+          <h1 style="font-size:1.5rem">IJCAI 2023</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://sjojok.github.io">Jiakai Sun</a>,
+            </span>
+            <span class="author-block">
+              Zhanjie Zhang,
+            </span>
+            <span class="author-block">
+              Jiafu Chen,
+            </span>
+            <span class="author-block">
+              <a href="https://guangyuankk.github.io/">Guangyuan Li</a>,
+            </span>
+            <span class="author-block">
+              Boyan Ji,
+            </span>
+            <span class="author-block">
+              Lei Zhao,
+            </span>
+            <span class="author-block">
+              Wei Xing
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Zhejiang University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://www.ijcai.org/proceedings/2023/157"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1UtD0FRv9y0qusWXjP97995XWqgT4NpfV/view"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-paperclip"></i>
+                  </span>
+                  <span>Suppl.</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/SJoJoK/VGOS"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">3DGStream</span> is designed for efficient Free-Viewpoint Videos streaming of real-world dynamic scenes, achieving fast on-the-fly per-frame reconstruction within 12 seconds and real-time rendering at 200 FPS.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item item-steak">
+          <video poster="" id="steak" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/flame_steak_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-sear">
+          <video poster="" id="sear" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/sear_steak_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee_martini_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-salmon">
+          <video poster="" id="salmon" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/flame_salmon_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+        <div class="item item-spinach">
+          <video poster="" id="spinach" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/cook_spinach_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-beef">
+          <video poster="" id="beef" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/cut_roasted_beef_low_res.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Neural Radiance Fields (NeRF) has shown great success in novel view synthesis due to its state-of-the-art quality and flexibility.
+            However, NeRF requires dense input views (tens to hundreds) and a long training time (hours to days) for a single scene to generate high-fidelity images.
+            Although using the voxel grids to represent the radiance field can significantly accelerate the optimization process, we observe that for sparse inputs, the voxel grids are more prone to overfitting to the training views and will have holes and floaters, which leads to artifacts.
+          </p>
+          <p>
+            In this paper, we propose VGOS, an approach for fast (3-5 minutes) radiance field reconstruction from sparse inputs (3-10 views) to address these issues.
+            To improve the performance of voxel-based radiance field in sparse input scenarios, we propose two methods:
+            (a) We introduce an incremental voxel training strategy, which prevents overfitting by suppressing the optimization of peripheral voxels in the early stage of reconstruction.
+            (b) We use several regularization techniques to smooth the voxels, which avoids degenerate solutions.
+          </p>
+          <p>
+            Experiments demonstrate that VGOS achieves state-of-the-art performance for sparse inputs with super-fast convergence.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+      <!-- Method. -->
+      <div class="columns is-centered">
+          <div class="column is-full-width">
+              <h2 class="title is-3">Method</h2>
+
+              <!-- Overview. -->
+              <div class="content has-text-justified">
+                  <div class="container is-max-desktop has-text-centered">
+                      <img src="./static/images/overview.png" width="100%">
+                  </div>
+                  <br>
+                  <p>
+                    Except for the photometric loss from a given set of input images (orange views), 
+                    the depth smoothness loss is imposed on the rendered depth patches from sampled views (blue views), 
+                    and the voxel girds are regularized by the proposed color-aware voxel smoothness loss. 
+                    Moreover, An incremental voxel training strategy is utilized to prevent overftting by expanding the range of optimized voxels (red and purple voxels) incrementally.
+                  </p>
+              </div>
+              <!--/ Overview. -->
+
+              <h2 class="title is-3">Evaluations</h2>
+
+              <h3 class="title is-4">Comparison on Realistic Synthetic 360° dataset in the 4-view setting.</h3>
+              <div class="container is-max-desktop has-text-centered">
+                  <img src="static/images/cpr_1.png" width="100%">
+              </div>
+
+              <br>
+
+              <h3 class="title is-4">Comparison on LLFF dataset in the 3-view setting.</h3>
+              <div class="container is-max-desktop hasxt-centered">
+                  <img src="static/images/cpr_2.png" width="100%">
+              </div>
+
+              <br>
+
+
+          </div>
+      </div>
+
+
+      <!-- Concurrent Work. -->
+      <!-- <div class="columns is-centered">
+          <div class="column is-full-width">
+              <h2 class="title is-3">Related Links</h2>
+
+              <div class="content has-text-justified">
+
+                  <p>
+                  </p>
+              </div>
+          </div>
+      </div> -->
+      <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{ijcai2023p157,
+  title     = {VGOS: Voxel Grid Optimization for View Synthesis from Sparse Inputs},
+  author    = {Sun, Jiakai and Zhang, Zhanjie and Chen, Jiafu and Li, Guangyuan and Ji, Boyan and Zhao, Lei and Xing, Wei},
+  booktitle = {Proceedings of the Thirty-Second International Joint Conference on
+               Artificial Intelligence, {IJCAI-23}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {Edith Elkind},
+  pages     = {1414--1422},
+  year      = {2023},
+  month     = {8},
+  note      = {Main Track},
+  doi       = {10.24963/ijcai.2023/157},
+  url       = {https://doi.org/10.24963/ijcai.2023/157},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+      <div class="columns is-centered">
+          <div class="column is-8">
+              <div class="content">
+                  <p>
+                      This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                      Commons Attribution-ShareAlike 4.0 International License</a>.
+                  </p>
+                  <p>
+                      Website template credit to <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Rethinking fast fourier convolution in image inpainting"
+image: /images/joc.png
+categories: pub
+author: "Tianyi Chu"
+authors: "Tianyi Chu, Jiafu Chen, <strong>Jiakai Sun</strong>, Shuobin Lian, Zhizhong Wang, Zhiwen Zuo*, Lei Zhao, Wei Xing, Dongming Lu"
+venue: "ICCV"
+paper: "https://openaccess.thecvf.com/content/ICCV2023/papers/Chu_Rethinking_Fast_Fourier_Convolution_in_Image_Inpainting_ICCV_2023_paper.pdf"
+---

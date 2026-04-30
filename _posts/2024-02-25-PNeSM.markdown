@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "PNeSM: Arbitrary 3D Scene Stylization via Prompt-Based Neural Style Mapping"
+image: /images/joc.png
+categories: pub
+author: "Jiafu Chen"
+authors: "Jiafu Chen, Wei Xing*, <strong>Jiakai Sun</strong>, Tianyi Chu, Yiling Huang, Boyan Ji, Lei Zhao*, Huaizhong Lin*, Haibo Chen, Zhizhong Wang*"
+venue: "AAAI"
+---

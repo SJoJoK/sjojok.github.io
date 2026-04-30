@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Attack Deterministic Conditional Image Generative Models for Diverse and Controllable Generation"
+image: /images/joc.png
+categories: pub
+author: "Tianyi Chu"
+authors: "Tianyi Chu, Wei Xing, Jiafu Chen, Zhizhong Wang, <strong>Jiakai Sun</strong>, Lei Zhao*, Haibo Chen, Huaizhong Lin*"
+venue: "AAAI"
+code: https://github.com/1911cty/Attack-deterministic-generative-model
+---

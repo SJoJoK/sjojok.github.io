@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "ArtBank: Artistic Style Transfer with Pre-trained Diffusion Model and Implicit Style Prompt Bank"
+image: /images/joc.png
+categories: pub
+author: "Guangyuan Li"
+authors: "Zhanjie Zhang, Quanwei Zhang, Guangyuan Li, Wei Xing*, Lei Zhao*, <strong>Jiakai Sun</strong>, Zehua Lan, Junsheng Luan, Yiling Huang, Huaizhong Lin*"
+venue: "AAAI"
+paper: https://arxiv.org/abs/2312.06135
+code: https://github.com/Jamie-Cheung/ArtBank
+---

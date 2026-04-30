@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "Joint Optimization of Triangle Mesh, Material, and Light from Neural Fields with Neural Radiance Cache"
+image: /images/joc.png
+categories: sl_pub
+author: "Jiakai Sun"
+authors: "<strong>Jiakai Sun</strong>, Zhanjie Zhang, Tianyi Chu, Guangyuan Li, Lei Zhao, Wei Xing"
+venue: "Arxiv"
+paper: "https://arxiv.org/abs/2305.16800"
+---
+
+Our framework merges neural fields and radiance caching to account for global illuination in single-bounce differentiable Monte Carlo ray tracing, achieving high-quality mesh and material reconstruction.

@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "DuDoINet: Dual-Domain Implicit Network for Multi-Modality MR Image Arbitrary-scale Super-Resolution"
+image: /images/joc.png
+categories: pub
+author: "Guangyuan Li"
+authors: "Guangyuan Li, Wei Xing*, Lei Zhao*, Zehua Lan, Zhanjie Zhang, <strong>Jiakai Sun</strong>, Haolin Yin, Huaizhong Lin, Zhijie Lin"
+venue: "ACM Multimedia"
+paper: "https://dl.acm.org/doi/pdf/10.1145/3581783.3612230"
+---

@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Self-Reference Image Super-Resolution via Pre-trained Diffusion Large Model and Window Adjustable Transformer"
+image: /images/joc.png
+categories: pub
+author: "Guangyuan Li"
+authors: "Guangyuan Li, Wei Xing*, Lei Zhao*, Zehua Lan, <strong>Jiakai Sun</strong>, Zhanjie Zhang, Quanwei Zhang, Huaizhong Lin, Zhijie Lin"
+venue: "ACM Multimedia"
+paper: "https://dl.acm.org/doi/pdf/10.1145/3581783.3611866"
+code: "https://github.com/GuangYuanKK/DWTrans"
+---
