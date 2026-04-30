@@ -1,0 +1,8 @@
+---
+layout: post
+title:  "MAPo: Motion-Aware Partitioning of Deformable 3D Gaussian Splatting for High-Fidelity Dynamic Scene Reconstruction"
+categories: pub
+authors: "Han Jiao, <strong>Jiakai Sun</strong>, Yexing Xu, Lei Zhao, Wei Xing, Huaizhong Lin"
+venue: "CVPR"
+arxiv: https://arxiv.org/abs/2508.19786
+---
